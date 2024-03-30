@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="post">
+        <h2 class="post__title">{{  title  }}</h2>
+        <p class="post__author">{{  post['author']  }} <span>{{post['date']}}</span></p>
+        <img src="../static/images/{{post['image_id']}}" alt="" class="post__img">
+        <p>{{post['text']}}</p>
+    </section>
+
+
+
+<section class="comment">
+    <h2>Комментарии</h2>
+    <form action="#" class="commet__form">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <textarea class="form-control" rows="2" placeholder="Добавьте Ваш комментарий"></textarea>
+                    <div class="mar-top clearfix">
+                        <button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Добавить</button>
+                        <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#"></a>
+                        <a class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#"></a>
+                        <a class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#"></a>
+                    </div>
+                </div>
+            </div>
+    </form>
+
+{% for comment in post['comments'] %}
+
+    <div class="media-block">
+        <div class="media-body">
+            <div class="mar-btm">
+                <a href="#" class="btn-link text-semibold media-heading box-inline">{{comment['author']}}</a>
+                <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> - 19-06-2016</p>
+            </div>
+            <p>{{comment['text']}}</p>
+            <div class="pad-ver">
+                <div class="btn-group">
+                    <a class="btn btn-sm btn-default btn-hover-success active" href="#"><i class="fa fa-thumbs-up"></i> Нравится</a>
+                    <a class="btn btn-sm btn-default btn-hover-danger" href="#"><i class="fa fa-thumbs-down"></i></a>
+                </div>
+                <a class="btn btn-sm btn-default btn-hover-primary" href="#">Ответить</a>
+            </div>
+            <hr>
+        </div>
+    </div>
+    {% endfor %}
+
+</section>
+
+
+
+
+
+{% endblock %}
