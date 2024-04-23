@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Счётчик посещений</h1>
+    <p>Посещений: {{session['visits']}}</p>
+</div>
+
+{% endblock content %}
