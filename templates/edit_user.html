@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% from 'form.html' import form_user%}
+
+{% block content %}
+<div class="container">
+    <h1>Редактировать пользователя</h1>
+    {{ form_user(user)}}
+</div>
+
+{% endblock %}

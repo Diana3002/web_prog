@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <p>Реализация функционала по управлению учетными записями</p>
+    <ol>
+        <li>
+            Просмотр
+        </li>
+        <li>
+            + Создать пользователя
+        </li>
+        <li>
+            Редактировать
+        </li>
+        <li>
+            Удалить
+        </li>
+        <li>
+            ДЗ - Валидация данных
+        </li>
+        <li>
+            ДЗ - Изменение пароля
+        </li>
+    </ol>
+    {% if current_user.is_authenticated %}
+  Hi {{ current_user.login }}!
+{% endif %}
+</div>
+
+
+
+{% endblock content %}
+
+
