@@ -1,0 +1,35 @@
+{% extends "visits/base.html" %}
+{% from 'pagination.html' import pagination %}
+
+{% block tabs %}
+<div class="tabs mt-3">
+    <h1 class="mb-4">Журнал посещений</h1>
+    <table class="table table-striped mt-3 mb-4">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Пользователь</th>
+                <th>Путь</th>
+                <th>Дата создания</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>{{ loop.index + offset }}</td>
+                <td>{{ event.user_name }}</td>
+                <td>{{ event.path }}</td>
+                <td>{{ event.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="user-visit-summary mb-4">
+        <h3>Количество посещений всех страниц: {{ user_visit_count }}</h3>
+    </div>
+    <a href="{{ url_for('eventlist.save_to_csv', template='all') }}" class="btn btn-success mb-4">Сохранить в CSV</a>
+</div>
+
+{{ pagination(count, page) }}
+
+{% endblock %}

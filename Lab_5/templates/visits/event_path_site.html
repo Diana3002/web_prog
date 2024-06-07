@@ -1,0 +1,26 @@
+{% extends "visits/base.html" %}
+
+{% block tabs %}
+<div class="tabs">
+    <h1>Журнал посещений по страницам</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Страница</th>
+                <th>Количество посещений</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ event.path }}</td>
+                <td>{{ event.count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('eventlist.save_to_csv', template='user') }}" class="btn btn-success mb-4">Сохранить в CSV</a>
+</div>
+{% endblock %}

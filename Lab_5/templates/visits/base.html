@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='container mt-2'>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link {% if request.endpoint == 'eventlist.show' %}active{% endif %}" aria-current="page" href="{{url_for('eventlist.show')}}">Журнал посещений</a>
+    </li>
+    {% if current_user.can("show_log", user) %}
+    <li class="nav-item">
+      <a class="nav-link {% if request.endpoint == 'eventlist.show_path_user' %}active{% endif %}" href="{{url_for('eventlist.show_path_user')}}">Журнал по пользователям</a>
+    </li>
+    {% endif %}
+    <li class="nav-item">
+      <a class="nav-link {% if request.endpoint == 'eventlist.show_path_site' %}active{% endif %}" href="{{url_for('eventlist.show_path_site')}}">Журнал по страницам</a>
+    </li>
+
+  </ul>
+{% block tabs %}
+
+{% endblock %}
+</div>
+{% endblock %}

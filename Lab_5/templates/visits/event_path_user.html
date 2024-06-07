@@ -1,0 +1,29 @@
+{% extends "visits/base.html" %}
+
+{% block tabs %}
+<div class="tabs">
+    <h1>Журнал посещений по пользователям</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Пользователь</th>
+                <th>Количество посещений</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>
+                    {{ loop.index }}
+                </td>
+                <td>{{ event.user_name }}</td>
+                <td>
+                    {{ event.count }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

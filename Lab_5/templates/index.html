@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <p>Авторизация и статистические отчёты</p>
+    <ol>
+        <li>
+            Авторизация пользователей
+        </li>
+        <li>
+            Формирование статистических отчётов
+        </li>
+
+    </ol>
+    {% if current_user.is_authenticated %}
+  Hi {{ current_user.login }}!
+{% endif %}
+</div>
+
+
+
+{% endblock content %}
+
+
