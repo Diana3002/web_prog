@@ -1,0 +1,4 @@
+{
+    "python.globalModuleInstallation": true,
+    "python.analysis.autoImportCompletions": true
+}

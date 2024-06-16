@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Удаление пользователя {{user.login}}</h1>
+    <form method="POST">    
+        <input type="hidden" class="form-control" id="" aria-describedby="" name="login" value={{user.login}}>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="" aria-describedby="" placeholder="First name" name="first_name" value={{user.first_name}} disabled>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="" aria-describedby="" placeholder="Last name" name="last_name" value={{user.last_name}} disabled>
+        </div>
+        <div class="mb-3">
+            <a href="{{url_for('userlist')}}" class="btn btn-primary">Назад</a>
+            <input type="submit" class="btn btn-danger" id="" aria-describedby="" name="middle_name" value="Удалить">
+        </div>
+      </form>
+</div>
+
+{% endblock %}

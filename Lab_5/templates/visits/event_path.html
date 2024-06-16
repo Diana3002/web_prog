@@ -1,0 +1,32 @@
+{% extends "visits/base.html" %}
+
+{% block tabs %}
+<div class="tabs">
+    <h1>Журнал посещений</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Путь</th>
+                <th>Количество</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>
+                    {{ loop.index }}
+                </td>
+                <td>
+                    {{ event.path }}
+                </td>
+                <td>
+                    {{ event.count_path }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

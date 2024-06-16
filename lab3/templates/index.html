@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <p>Реализация аутентификации пользователей</p>
+    <ol>
+        <li>
+            Страница "Счётчик посещений"
+        </li>
+        <li>
+            Аутентификация пользователей 
+        </li>
+        <li>
+            "Секретная страница"
+        </li>
+    </ol>
+    {% if current_user.is_authenticated %}
+  Hi {{ current_user.login }}!
+{% endif %}
+</div>
+
+
+
+{% endblock content %}
+
+

@@ -1,0 +1,23 @@
+{% macro pagination(count, current_page) %}
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item {{ 'disabled' if current_page <= 1 else '' }}">
+      <a class="page-link" href="{{ url_for(request.endpoint, page=current_page-1) }}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {% for page in range(1, count + 1) %}
+      {% if page >= current_page - 2 and page <= current_page + 2 %}
+        <li class="page-item {{ 'active' if page == current_page else '' }}">
+          <a class="page-link" href="{{ url_for(request.endpoint, page=page) }}">{{ page }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    <li class="page-item {{ 'disabled' if current_page >= count else '' }}">
+      <a class="page-link" href="{{ url_for(request.endpoint, page=current_page+1) }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+{% endmacro %}

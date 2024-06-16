@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+    <h1>
+        Параметры
+    </h1>
+    <table class="table">
+        {% for key, value in request.args.items()%}
+        <tr>
+            <td>
+                {{key}}
+            </td>
+            <td>
+                {{value}}
+            </td>
+        </tr>
+        {% endfor%}
+    </table>
+</div>
+{% endblock content %}

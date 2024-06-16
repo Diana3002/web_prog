@@ -1,0 +1,22 @@
+{% macro form_user(user)%}
+    <form method="POST">
+        {% if request.endpoint == 'createuser'%}
+            <div class="mb-3">
+            <input type="login" class="form-control" id="" aria-describedby="" placeholder="Login" name="login" value={{user.login or ''}}>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" id="" aria-describedby="" placeholder="Password" name="password" value={{user.password or ''}}>
+            </div>
+        {% endif%}
+        <div class="mb-3">
+            <input type="text" class="form-control" id="" aria-describedby="" placeholder="First name" name="first_name" value={{user.first_name or ''}}>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="" aria-describedby="" placeholder="Last name" name="last_name"  value={{user.last_name or ''}}>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="" aria-describedby="" placeholder="Middle name" name="middle_name"  value={{user.middle_name or ''}}>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endmacro%}
